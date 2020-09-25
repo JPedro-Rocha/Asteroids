@@ -12,19 +12,15 @@ public class AsteroidController : MonoBehaviour
     void Start()
     {
         //Referencia o gameObejct do controller
-        GameObject gameControllerObject =
-            GameObject.FindWithTag("GameController");
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
 
-        gameController =
-            gameControllerObject.GetComponent<GameController>();
+        gameController = gameControllerObject.GetComponent<GameController>();
 
         // aplica força em um asteroide 
-        GetComponent<Rigidbody2D>()
-            .AddForce(transform.up * Random.Range(-50.0f, 150.0f));
+        GetComponent<Rigidbody2D>().AddForce(transform.up * Random.Range(-50.0f, 150.0f));
 
         //aplica rotação e velocidade
-        GetComponent<Rigidbody2D>()
-            .angularVelocity = Random.Range(-0.0f, 90.0f);
+        GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-0.0f, 90.0f);
     }
 
     // Update is called once per frame

@@ -3,27 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour 
+public class GameController : MonoBehaviour
 {
     public GameObject asteroid;
-
+    private int score;
+    private int hiscore;
     private int asteroidsRemaining;
     private int wave = 1;
-    private int increaseEachWave = 4; 
+    private int increaseEachWave = 4;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        gerarAsteroides();
+        hiscore = PlayerPrefs.GetInt("hiscore", 0);
+        ComecarJogo();
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+
     }
 
+    void ComecarJogo()
+    {
+        score = 0;
+        wave = 1;
+        gerarAsteroides();
+    }
 
     void gerarAsteroides()
     {
@@ -42,7 +50,7 @@ public class GameController : MonoBehaviour
 
         }
 
-     
+
     }
 
 }
