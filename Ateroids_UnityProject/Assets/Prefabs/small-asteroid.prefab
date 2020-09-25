@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 2890746448203974367}
   - component: {fileID: 2890746448203974352}
   - component: {fileID: 2890746448203974353}
+  - component: {fileID: 7420693084200303857}
+  - component: {fileID: -408963748307722506}
   m_Layer: 0
   m_Name: small-asteroid
-  m_TagString: Untagged
+  m_TagString: Asteroide pequeno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,3 +151,29 @@ PolygonCollider2D:
       - {x: 0.40981543, y: 0.19649982}
       - {x: 0.53972983, y: -0.07711172}
       - {x: 0.55052197, y: -0.117467165}
+--- !u!114 &7420693084200303857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890746448203974364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7b3ffb6f3e0c44bb80ab527129723e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroy: {fileID: 8300000, guid: 60ad261a6f068a948868678f550f83c3, type: 3}
+  smallAsteroid: {fileID: 2890746448203974364}
+--- !u!114 &-408963748307722506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890746448203974364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e30618525d55a345bf4c4f99532f0a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
