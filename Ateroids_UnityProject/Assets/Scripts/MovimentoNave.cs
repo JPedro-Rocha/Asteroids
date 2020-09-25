@@ -5,14 +5,14 @@ using UnityEngine;
 public class MovimentoNave : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] float movespeed = 1f;
+    [SerializeField] float movespeed = 10f;
     [SerializeField] float rotationspeed = 100f;
 
     public AudioClip crash;
     public AudioClip shoot;
 
     public GameObject bullet;
-    [SerializeField] public Transform firePoint;
+    public Transform firePoint;
 
 
 
@@ -35,8 +35,6 @@ public class MovimentoNave : MonoBehaviour
         rb.transform.Rotate(0, 0, -Input.GetAxis("Horizontal") * rotationspeed * Time.fixedDeltaTime);//rotação
         rb.AddForce(transform.up * movespeed * Input.GetAxis("Vertical"));//movimento vertical
 
-        //if (Input.GetButtonDown("Fire1")) { Shoot(); }//atirar
-
         /*if (Input.GetAxis("Vertical") == 1)
         {
             rb.transform.position += transform.up * Time.deltaTime * movespeed;
@@ -57,5 +55,11 @@ public class MovimentoNave : MonoBehaviour
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);
         AudioSource.PlayClipAtPoint(shoot, Camera.main.transform.position);
+    }
+
+    void OnTriggerEnter2D(Collider2D asteroid)//nave bate em asteroide
+    {
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(crash, Camera.main.transform.position);
     }
 }

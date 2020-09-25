@@ -2,35 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidController : MonoBehaviour 
+public class AsteroidController : MonoBehaviour
 {
     public AudioClip destroy;
     public GameObject smallAsteroid;
 
     private GameController gameController;
-    
+
     void Start()
     {
         //Referencia o gameObejct do controller
         GameObject gameControllerObject =
-            GameObject.FindWithTag("GameController"); 
+            GameObject.FindWithTag("GameController");
 
         gameController =
-            gameControllerObject.GetComponent<GameController>(); 
+            gameControllerObject.GetComponent<GameController>();
 
         // aplica força em um asteroide 
         GetComponent<Rigidbody2D>()
             .AddForce(transform.up * Random.Range(-50.0f, 150.0f));
 
         //aplica rotação e velocidade
-        GetComponent<Rigidbody2D>() 
+        GetComponent<Rigidbody2D>()
             .angularVelocity = Random.Range(-0.0f, 90.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     /*void OnCollisionEnter2D(Collision2D c)
@@ -85,4 +85,10 @@ public class AsteroidController : MonoBehaviour
         }
 
     }*/
+
+    void OnTriggerEnter2D(Collider2D bullet)//asteroide destruído
+    {
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(destroy, Camera.main.transform.position);
+    }
 }
