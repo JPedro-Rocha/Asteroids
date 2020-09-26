@@ -82,7 +82,7 @@ public class AsteroidController : MonoBehaviour
 
     }*/
 
-    void OnCollisionEnter2D(Collision2D col)//asteroide destruído
+    void OnTriggerEnter2D(Collider2D col)//asteroide destruído
     {
         if (col.gameObject.tag.Equals("Bala"))
         {

@@ -53,7 +53,7 @@ public class MovimentoNave : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bullet, firePoint.position, firePoint.rotation);
+        Instantiate(bullet, transform.position, transform.rotation);
         AudioSource.PlayClipAtPoint(shoot, Camera.main.transform.position);
     }
 
