@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //pegar todos os asteroids por tag, se o número for igual a zero spawn 
     }
 
     void ComecarJogo()
@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
     void gerarAsteroides()
     {
 
-
+        destruirAsteroides();
         asteroidsRemaining = (wave * increaseEachWave);
 
         for (int i = 0; i < asteroidsRemaining; i++)
@@ -46,11 +46,46 @@ public class GameController : MonoBehaviour
             Instantiate(asteroid,
                 new Vector3(Random.Range(-9.0f, 9.0f),
                     Random.Range(-6.0f, 6.0f), 0),
-                Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
-
+                    Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
         }
-
 
     }
 
+    void destruirAsteroides()
+    {
+        GameObject[] asteroids = GameObject.FindGameObjectsWithTag("AsteroideGrande");
+        foreach (GameObject current in asteroids)
+        {
+            GameObject.Destroy(current);
+        }
+
+        GameObject[] asteroids2 = GameObject.FindGameObjectsWithTag("AsteroidePequeno");
+        foreach (GameObject current in asteroids2)
+        {
+            GameObject.Destroy(current);
+        }
+    }
+
+    public void aumentarScore()
+    {
+        score++;
+        //if (score > hischore) hiscore = score;
+        //PlayerPrefs.SetInt("hiscore", hiscore);
+
+        if (asteroidsRemaining < 1)
+        {
+            wave++;
+            gerarAsteroides();
+        }
+    }
+
+    public void diminuirAsteroides()
+    {
+        asteroidsRemaining--;
+    }
+
+    public void dividirAsteroide()//adicionar 1 ao número de asteroides quando dois pequenos aparecem
+    {
+        asteroidsRemaining += 1;
+    }
 }

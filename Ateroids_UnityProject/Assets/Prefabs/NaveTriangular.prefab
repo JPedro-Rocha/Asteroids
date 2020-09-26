@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6178301742090924998}
   m_Layer: 0
   m_Name: NaveTriangular
-  m_TagString: Untagged
+  m_TagString: Nave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,10 @@ MonoBehaviour:
   rb: {fileID: 6178301742090924997}
   movespeed: 0.51
   rotationspeed: 150
+  crash: {fileID: 0}
+  shoot: {fileID: 0}
+  bullet: {fileID: 0}
+  firePoint: {fileID: 0}
 --- !u!50 &6178301742090924997
 Rigidbody2D:
   serializedVersion: 4

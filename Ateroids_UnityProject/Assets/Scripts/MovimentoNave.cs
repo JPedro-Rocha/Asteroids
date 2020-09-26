@@ -57,9 +57,12 @@ public class MovimentoNave : MonoBehaviour
         AudioSource.PlayClipAtPoint(shoot, Camera.main.transform.position);
     }
 
-    void OnTriggerEnter2D(Collider2D asteroid)//nave bate em asteroide
+    void OnCollisionEnter2D(Collision2D col)//nave bate em asteroide
     {
-        Destroy(gameObject);
-        AudioSource.PlayClipAtPoint(crash, Camera.main.transform.position);
+        if (col.gameObject.tag.Equals("AsteroideGrande") || col.gameObject.tag.Equals("AsteroidePequeno"))
+        {
+            Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(crash, Camera.main.transform.position);
+        }
     }
 }

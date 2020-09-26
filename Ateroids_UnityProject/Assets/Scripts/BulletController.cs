@@ -19,9 +19,4 @@ public class BulletController : MonoBehaviour
     {
 
     }
-
-    void OnTriggerEnter2D(Collider2D asteroid)//bala bate em asteroide
-    {
-        Destroy(gameObject);
-    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AsteroidController : MonoBehaviour
 {
     public AudioClip destroy;
-    public GameObject smallAsteroid;
+    public GameObject asteroidePequeno;
 
     private GameController gameController;
 
@@ -82,9 +82,31 @@ public class AsteroidController : MonoBehaviour
 
     }*/
 
-    void OnTriggerEnter2D(Collider2D bullet)//asteroide destruído
+    void OnCollisionEnter2D(Collision2D col)//asteroide destruído
     {
-        Destroy(gameObject);
-        AudioSource.PlayClipAtPoint(destroy, Camera.main.transform.position);
+        if (col.gameObject.tag.Equals("Bala"))
+        {
+            Destroy(col.gameObject);//destruir bala
+
+            if (tag.Equals("AsteroideGrande"))
+            {
+                Instantiate(asteroidePequeno,
+                    new Vector3(transform.position.x - .5f,
+                        transform.position.y - .5f, 0),
+                        Quaternion.Euler(0, 0, 90));
+
+                Instantiate(asteroidePequeno,
+                    new Vector3(transform.position.x + .5f,
+                        transform.position.y - .5f, 0),
+                        Quaternion.Euler(0, 0, 270));
+
+                gameController.dividirAsteroide();//aumenta o número de asteroides em 1 por causa dos dois menores
+            }
+            else { gameController.diminuirAsteroides(); }
+
+            Destroy(gameObject);
+            gameController.aumentarScore();
+            AudioSource.PlayClipAtPoint(destroy, Camera.main.transform.position);
+        }
     }
 }

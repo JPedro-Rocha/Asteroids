@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -408963748307722506}
   m_Layer: 0
   m_Name: small-asteroid
-  m_TagString: Asteroide pequeno
+  m_TagString: AsteroidePequeno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 92d144f636330264fb3be918d7e7599e, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroy: {fileID: 8300000, guid: 60ad261a6f068a948868678f550f83c3, type: 3}
-  smallAsteroid: {fileID: 2890746448203974364}
+  asteroidePequeno: {fileID: 2890746448203974364}
 --- !u!114 &-408963748307722506
 MonoBehaviour:
   m_ObjectHideFlags: 0
