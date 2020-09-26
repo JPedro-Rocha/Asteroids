@@ -63,6 +63,7 @@ public class MovimentoNave : MonoBehaviour
         {
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(crash, Camera.main.transform.position);
+
         }
     }
 }

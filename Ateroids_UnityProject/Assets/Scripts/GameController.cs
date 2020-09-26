@@ -7,27 +7,38 @@ public class GameController : MonoBehaviour
 {
     public GameObject asteroid;
     private int score;
-    private int hiscore;
+
     private int asteroidsRemaining;
     private int wave = 1;
     private int increaseEachWave = 4;
+    public GameObject nave;
+
+    public Text scoreText;
+    public Text waveText;
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        hiscore = PlayerPrefs.GetInt("hiscore", 0);
         ComecarJogo();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //pegar todos os asteroids por tag, se o número for igual a zero spawn 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ComecarJogo();
+        }
     }
 
     void ComecarJogo()
     {
+        scoreText.text = "SCORE:" + score;
+        waveText.text = "WAVE: " + wave;
+
         score = 0;
         wave = 1;
         gerarAsteroides();
@@ -41,13 +52,26 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < asteroidsRemaining; i++)
         {
+            bool asteroidegerado = false;
+            while (!asteroidegerado)
+            {
+                // Spawn an asteroid
+                Vector3 asteroidPosition = new Vector3(Random.Range(-9.0f, 9.0f), Random.Range(-6.0f, 6.0f), 0);
+                if ((asteroidPosition - nave.transform.position).magnitude < 4)
+                {
+                    continue;
+                    /*esse if vai checar se a posição do asteroide que vai ser spawnado
+                      é diferente da posição da nave, para não spawnar em cima da nave*/
+                }
+                else
+                {
+                    Instantiate(asteroid, asteroidPosition, Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
+                    asteroidegerado = true;
+                }
 
-            // Spawn an asteroid
-            Instantiate(asteroid,
-                new Vector3(Random.Range(-9.0f, 9.0f),
-                    Random.Range(-6.0f, 6.0f), 0),
-                    Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
+            }
         }
+        waveText.text = "WAVE: " + wave;
 
     }
 
@@ -68,9 +92,9 @@ public class GameController : MonoBehaviour
 
     public void aumentarScore()
     {
+        scoreText.text = "SCORE:" + score;
         score++;
-        //if (score > hischore) hiscore = score;
-        //PlayerPrefs.SetInt("hiscore", hiscore);
+
 
         if (asteroidsRemaining < 1)
         {
