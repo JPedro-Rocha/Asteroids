@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6178301742090924996}
   - component: {fileID: 6178301742090924997}
   - component: {fileID: 6178301742090924998}
+  - component: {fileID: -1288643815395370653}
   m_Layer: 0
   m_Name: NaveTriangular
   m_TagString: Nave
@@ -97,12 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6178301742090924997}
-  movespeed: 0.51
-  rotationspeed: 150
-  crash: {fileID: 0}
-  shoot: {fileID: 0}
-  bullet: {fileID: 0}
-  firePoint: {fileID: 0}
+  movespeed: 1.5
+  rotationspeed: 300
+  crash: {fileID: 8300000, guid: fddaf53e79f81274db7a8419fbd16846, type: 3}
+  shoot: {fileID: 8300000, guid: 291db5f8f5a82a9408b51feeb1a42762, type: 3}
+  bullet: {fileID: 8583821718396760830, guid: b6eab42a1bf21c74fac5147e9647cb64, type: 3}
+  firePoint: {fileID: 7411694730843153, guid: 0ebed1b32e8278b4a8c3a92c2d1bf243, type: 3}
 --- !u!50 &6178301742090924997
 Rigidbody2D:
   serializedVersion: 4
@@ -115,8 +116,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 2
+  m_LinearDrag: 0.27
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -281,3 +282,15 @@ PolygonCollider2D:
       - {x: -8.11875, y: -9.018749}
       - {x: 8.49375, y: -9.018749}
       - {x: 8.587498, y: -8.964934}
+--- !u!114 &-1288643815395370653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6178301742090924999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e30618525d55a345bf4c4f99532f0a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

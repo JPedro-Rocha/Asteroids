@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     private int wave = 1;
     private int increaseEachWave = 4;
     public GameObject nave;
+    public GameObject firePoint;
 
     public Text scoreText;
     public Text waveText;
@@ -42,6 +43,10 @@ public class GameController : MonoBehaviour
         score = 0;
         wave = 1;
         gerarAsteroides();
+        Instantiate(nave, new Vector3(0, 0, 0), transform.rotation);
+        //Instantiate(firePoint);
+        firePoint = Instantiate(firePoint, new Vector3(0, 0, 0), transform.rotation);
+        //firePoint.transform.parent = nave.transform;
     }
 
     void gerarAsteroides()
