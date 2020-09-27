@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MovimentoNave : MonoBehaviour
 {
@@ -13,15 +15,13 @@ public class MovimentoNave : MonoBehaviour
 
     public GameObject bullet;
     public Transform firePoint;
-
-
+  
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -63,6 +63,7 @@ public class MovimentoNave : MonoBehaviour
         {
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(crash, Camera.main.transform.position);
+            
 
         }
     }

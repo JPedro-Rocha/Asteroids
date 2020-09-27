@@ -16,26 +16,50 @@ public class GameController : MonoBehaviour
 
     public Text scoreText;
     public Text waveText;
-
+    public Text startName;
+    public Text name;
+    public Text gameOver;
+    public Text tenteNovamente;
+    private int controle = 1;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        ComecarJogo();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButton("Jump") && controle == 1)
+        {
+            controle = 2;
+            ComecarJogo();
+            startName.text = "";
+            name.text = "";
+
+        }
+         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ComecarJogo();
+            gameOver.text = "";
+            tenteNovamente.text = ""; 
+        }
+
+        if (GameObject.FindWithTag("Nave") == null) 
+        {      
+            if (controle == 2)
+            {
+                gameOver.text = "Game Over";
+                tenteNovamente.text = "Aperte esc para recomeçar.";
+            }
         }
     }
 
-    void ComecarJogo()
+    public void ComecarJogo()
     {
         scoreText.text = "SCORE:" + score;
         waveText.text = "WAVE: " + wave;
